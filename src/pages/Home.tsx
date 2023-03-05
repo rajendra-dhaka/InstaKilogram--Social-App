@@ -1,12 +1,18 @@
-import { IonHeader, IonIcon, IonPage, IonToolbar } from '@ionic/react';
+import {IonCol, IonContent, IonGrid, IonPage} from '@ionic/react';
+import { Header } from '../components';
 import './Home.scss';
 
 const Home = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>Insta KiloGram</IonToolbar>
-      </IonHeader>
+      <Header />
+      <IonContent>
+        <IonGrid fixed>
+          <IonCol>
+            
+          </IonCol>
+        </IonGrid>
+      </IonContent>
     </IonPage>
   );
 };
