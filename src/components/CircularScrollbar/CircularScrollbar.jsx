@@ -57,7 +57,7 @@ export const CircularScrollbar = () => {
               <h6 className='ion-no-margin ion-text-capitalize font14'>{item.name}</h6>
             </div>
 
-            <Modal setModalIsOpen={setModalIsOpen} modalIsOpen={modalIsOpen} data={item} />
+            <Modal setModalIsOpen={setModalIsOpen} modalIsOpen={modalIsOpen} data={item}/>
           </>
         ))}
     </div>

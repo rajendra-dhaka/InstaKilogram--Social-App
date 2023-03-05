@@ -4,14 +4,6 @@ import React, { useEffect, useState } from "react";
 import './Modal.scss';
 
 export const Modal = ({ setModalIsOpen, modalIsOpen, data }) => {
-  const [first, setfirst] = useState(0);
-  useEffect(() => {
-    if (first < 5) {
-      setfirst(prev => prev + 1);
-  }
-},[first])
-
-  console.log(data, 'ye aaya');
   return (
     <IonModal isOpen={modalIsOpen}>
   
