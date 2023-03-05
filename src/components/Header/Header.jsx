@@ -6,14 +6,14 @@ import './Header.scss'
 
 export const Header = () => {
   return (
-    <IonHeader>
+    <IonHeader className='header'>
       <IonToolbar>
         <IonGrid fixed>
           <IonRow className='d-flex ion-justify-content-center ion-align-items-center'>
             <IonCol size='2' className='ion-text-center'>
               <IonIcon icon={cameraOutline}></IonIcon>
             </IonCol>
-            <IonCol size='8' className='ion-text-center ty'>
+            <IonCol size='8' className='fc'>
               <IonTitle>Insta KiloGram</IonTitle>
             </IonCol>
             <IonCol size='2' className='ion-text-center'>

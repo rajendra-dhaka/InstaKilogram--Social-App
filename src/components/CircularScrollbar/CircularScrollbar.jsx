@@ -1,5 +1,15 @@
-import { IonButton, IonImg } from '@ionic/react';
+import {
+  IonButton,
+  IonImg,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonModal,
+  IonTitle,
+  IonToolbar,
+} from '@ionic/react';
 import React, { useEffect, useState } from 'react';
+import { Modal } from '../Modal/Modal';
 import './CircularScrollbar.scss';
 
 
@@ -18,6 +28,7 @@ import './CircularScrollbar.scss';
 export const CircularScrollbar = () => {
 
   const [userStatusData, setUserStatusData] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   
   useEffect(() => {
     const statusInfo = userNames.map((item, index) => {
@@ -33,12 +44,21 @@ export const CircularScrollbar = () => {
     <div className='scroll-x circular-scrollbar'>
       {userStatusData &&
         userStatusData.map((item, index) => (
-          <div className='scroll-item mar-b-10' key={index} onClick={()=>{}}>
-            <IonButton fill='clear' shape='round'>
-              <IonImg src={item.image} />
-            </IonButton>
-            <h6 className='ion-no-margin ion-text-capitalize font14'>{item.name}</h6>
-          </div>
+          <>
+            <div
+              className='scroll-item mar-b-10'
+              key={index}
+              onClick={() => {
+                setModalIsOpen(true);
+              }}>
+              <IonButton fill='clear' shape='round'>
+                <IonImg src={item.image} />
+              </IonButton>
+              <h6 className='ion-no-margin ion-text-capitalize font14'>{item.name}</h6>
+            </div>
+
+            <Modal setModalIsOpen={setModalIsOpen} modalIsOpen={modalIsOpen} data={item} />
+          </>
         ))}
     </div>
   );

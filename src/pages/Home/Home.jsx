@@ -1,8 +1,8 @@
 import {IonCol, IonContent, IonGrid, IonPage} from '@ionic/react';
-import { Header } from '../components';
+import { Header } from '../../components';
 import './Home.scss';
 
-const Home = () => {
+export const Home = () => {
   return (
     <IonPage>
       <Header />
@@ -17,4 +17,3 @@ const Home = () => {
   );
 };
 
-export default Home;

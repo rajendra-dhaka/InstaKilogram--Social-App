@@ -7,6 +7,10 @@
   font-family: 'Roboto', sans-serif;
 }
 
+ion-grid {
+  --ion-grid-width: 540px;
+}
+
 .d-flex{
   display: flex;
 }
