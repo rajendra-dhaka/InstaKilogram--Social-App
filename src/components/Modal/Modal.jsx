@@ -1,6 +1,6 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonImg, IonModal, IonTitle, IonToolbar } from "@ionic/react";
+import { IonButton, IonButtons, IonContent, IonIcon, IonImg, IonModal, IonTitle, IonToolbar } from "@ionic/react";
 import { closeOutline } from "ionicons/icons";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import './Modal.scss';
 
 export const Modal = ({ setModalIsOpen, modalIsOpen, data }) => {

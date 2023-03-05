@@ -2,7 +2,6 @@ import {
   IonAvatar,
   IonButton,
   IonCard,
-  IonCardContent,
   IonCardHeader,
   IonCardSubtitle,
   IonCardTitle,

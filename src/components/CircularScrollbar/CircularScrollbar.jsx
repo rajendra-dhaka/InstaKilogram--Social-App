@@ -1,12 +1,6 @@
 import {
   IonButton,
   IonImg,
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonModal,
-  IonTitle,
-  IonToolbar,
 } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import { Modal } from '../Modal/Modal';
