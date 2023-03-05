@@ -1,0 +1,7 @@
+{
+  "name": "social-app-home",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
