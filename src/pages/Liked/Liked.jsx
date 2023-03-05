@@ -1,5 +1,6 @@
+import { IonPage } from "@ionic/react";
 import React from "react";
 
 export const Liked = () => {
-  return <div>Liked</div>;
+  return <IonPage>Liked</IonPage>;
 };

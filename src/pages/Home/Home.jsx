@@ -1,19 +1,24 @@
-import {IonCol, IonContent, IonGrid, IonPage} from '@ionic/react';
-import { Header } from '../../components';
+import { IonCol, IonContent, IonGrid, IonPage, IonRow } from '@ionic/react';
+import { Header, Post } from '../../components';
+ import postsData from '../../postData.json';
 import './Home.scss';
 
 export const Home = () => {
+  console.log(postsData,'posgh');
   return (
-    <IonPage>
+    <IonPage className='home'>
       <Header />
-      <IonContent>
+      <IonContent className='home-content'>
         <IonGrid fixed>
-          <IonCol>
-            
-          </IonCol>
+          <IonRow>
+            <IonCol size='12'>
+              {postsData.map((item) => (
+                <Post key={item.id} data={item} />
+              ))}
+            </IonCol>
+          </IonRow>
         </IonGrid>
       </IonContent>
     </IonPage>
   );
 };
-

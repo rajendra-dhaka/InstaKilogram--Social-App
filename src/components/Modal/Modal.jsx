@@ -1,12 +1,20 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonImg, IonModal, IonTitle, IonToolbar } from "@ionic/react";
-import React from "react";
+import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonImg, IonModal, IonTitle, IonToolbar } from "@ionic/react";
+import { closeOutline } from "ionicons/icons";
+import React, { useEffect, useState } from "react";
 import './Modal.scss';
 
 export const Modal = ({ setModalIsOpen, modalIsOpen, data }) => {
-  console.log(data,'modal me data ki value');
+  const [first, setfirst] = useState(0);
+  useEffect(() => {
+    if (first < 5) {
+      setfirst(prev => prev + 1);
+  }
+},[first])
+
+  console.log(data, 'ye aaya');
   return (
     <IonModal isOpen={modalIsOpen}>
-      <IonHeader>
+  
         <IonToolbar>
           <IonTitle>{ data.name}</IonTitle>
           <IonButtons slot='end'>
@@ -14,11 +22,11 @@ export const Modal = ({ setModalIsOpen, modalIsOpen, data }) => {
               onClick={() => {
                 setModalIsOpen(false);
               }}>
-              Close
+              <IonIcon icon={closeOutline}></IonIcon>
             </IonButton>
           </IonButtons>
         </IonToolbar>
-      </IonHeader>
+
       <IonContent className='ion-padding'>
         <IonImg src={data.image}></IonImg>
       </IonContent>

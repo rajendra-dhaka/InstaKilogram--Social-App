@@ -1,5 +1,6 @@
+import { IonPage } from "@ionic/react";
 import React from "react";
 
 export const Account = () => {
-  return <div>Account</div>;
+  return <IonPage>Account</IonPage>;
 };

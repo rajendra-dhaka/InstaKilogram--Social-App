@@ -1,0 +1,151 @@
+ [
+  {
+    "id": 1,
+    "author": {
+      "username": "johndoe",
+      "profilePictureUrl": "https://picsum.photos/id/237/200/200"
+    },
+    "imageUrl": "https://picsum.photos/id/1018/1000/1000",
+    "likes": 123,
+    "isLiked": false,
+    "isSaved": false,
+    "comments": []
+  },
+  {
+    "id": 2,
+    "author": {
+      "username": "janedoe",
+      "profilePictureUrl": "https://picsum.photos/id/1080/200/200"
+    },
+    "imageUrl": "https://picsum.photos/id/1006/1000/1000",
+    "likes": 456,
+    "isLiked": false,
+    "isSaved": false,
+    "comments": [
+      {
+        "username": "testuser",
+        "text": "This is a test comment."
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "author": {
+      "username": "johndoe",
+      "profilePictureUrl": "https://picsum.photos/id/237/200/200"
+    },
+    "imageUrl": "https://picsum.photos/id/1020/1000/1000",
+    "likes": 789,
+    "isLiked": false,
+    "isSaved": false,
+    "comments": [
+      {
+        "username": "testuser",
+        "text": "Another test comment."
+      },
+      {
+        "username": "anotheruser",
+        "text": "This is a longer comment that spans multiple lines. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet velit eu mauris ultrices faucibus. Sed et nisl vel libero pretium fringilla in vitae diam. Suspendisse rutrum sapien risus, ac ultrices tellus aliquam non. Nullam non nulla non dolor luctus vestibulum. Aliquam id felis id quam imperdiet rutrum eu vel nisi. Praesent id enim vitae massa luctus congue vel vel ex. Pellentesque blandit justo sit amet nisl elementum, a venenatis nulla bibendum. Nullam tempor purus turpis, in tempor ante vehicula et. Aenean ullamcorper felis vel nibh euismod, quis rhoncus odio imperdiet. Quisque in sapien at nulla facilisis rhoncus."
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "author": {
+      "username": "janedoe",
+      "profilePictureUrl": "https://picsum.photos/id/1080/200/200"
+    },
+    "imageUrl": "https://picsum.photos/id/1024/1000/1000",
+    "likes": 1011,
+    "isLiked": false,
+    "isSaved": false,
+    "comments": []
+  },
+  {
+    "id": 5,
+    "author": {
+      "username": "johndoe",
+      "profilePictureUrl": "https://picsum.photos/id/237/200/200"
+    },
+    "imageUrl": "https://picsum.photos/id/1025/1000/1000",
+    "likes": 1213,
+    "isLiked": false,
+    "isSaved": false,
+    "comments": []
+  },
+  {
+    "id": 6,
+    "author": {
+      "username": "janedoe",
+      "profilePictureUrl": "https://picsum.photos/id/1080/200/200"
+    },
+    "imageUrl": "https://picsum.photos/id/1035/1000/1000",
+    "likes": 1415,
+    "isLiked": false,
+    "isSaved": false,
+    "comments": [
+      {
+        "username": "testuser",
+        "text": "Test comment #1"
+      },
+      {
+        "username": "anotheruser",
+        "text": "Test comment #2"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "author": {
+      "username": "johndoe",
+      "profilePictureUrl": "https://picsum.photos/id/237/200/200"
+    },
+    "imageUrl": "https://picsum.photos/id/1032/1000/1000",
+    "likes": 1617,
+    "isLiked": false,
+    "isSaved": false,
+    "comments": []
+  },
+  {
+    "id": 8,
+    "author": {
+      "username": "janedoe",
+      "profilePictureUrl": "https://picsum.photos/id/1080/200/200"
+    },
+    "imageUrl": "https://picsum.photos/id/1029/1000/1000",
+    "likes": 1819,
+    "isLiked": false,
+    "isSaved": false,
+    "comments": []
+  },
+  {
+    "id": 9,
+    "author": {
+      "username": "johndoe",
+      "profilePictureUrl": "https://picsum.photos/id/237/200/200"
+    },
+    "imageUrl": "https://picsum.photos/id/1019/1000/1000",
+    "likes": 2021,
+    "isLiked": false,
+    "isSaved": false,
+    "comments": [
+      {
+        "username": "testuser",
+        "text": "Test comment"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "author": {
+      "username": "janedoe",
+      "profilePictureUrl": "https://picsum.photos/id/1080/200/200"
+    },
+    "imageUrl": "https://picsum.photos/id/1016/1000/1000",
+    "likes": 2223,
+    "isLiked": false,
+    "isSaved": false,
+    "comments": []
+  }
+]
+
