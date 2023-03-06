@@ -8,8 +8,10 @@ export const Saved = () => {
 
   useEffect(() => {
     setShowLoading(true);
-    setTimeout(()=>{ setShowLoading(false);},1000)
-  }, [])
+    setTimeout(() => {
+      setShowLoading(false);
+    }, 1000);
+  }, [setShowLoading]);
   
  const savedPost = postFilteredData.filter((item) => {
    return item.isSaved === true;

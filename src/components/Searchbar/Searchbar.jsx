@@ -1,13 +1,11 @@
-import { IonSearchbar } from "@ionic/react";
-import React, { useState } from "react";
-import { usePostData } from "../../context/PostDataContext";
-import './Searchbar.scss'
-
+import { IonSearchbar } from '@ionic/react';
+import React, { useState } from 'react';
+import { usePostData } from '../../context/PostDataContext';
+import './Searchbar.scss';
 
 export const Searchbar = () => {
+  const { myPostData, setPostFilteredData} = usePostData();
 
-  const { myPostData, setPostFilteredData, showLoading } = usePostData();
-  
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = (e) => {
@@ -20,8 +18,7 @@ export const Searchbar = () => {
     );
 
     setPostFilteredData(filteredData);
-   
-  }
+  };
   return (
     <IonSearchbar
       animated='true'
@@ -29,6 +26,4 @@ export const Searchbar = () => {
       value={searchTerm}
       onIonInput={handleSearch}></IonSearchbar>
   );
-
-       
 };

@@ -12,7 +12,7 @@ export const Liked = () => {
     setTimeout(() => {
       setShowLoading(false);
     }, 1000);
-  }, []);
+  }, [setShowLoading]);
 
   const likedPost = postFilteredData.filter((item) => {
     return item.isLiked === true
