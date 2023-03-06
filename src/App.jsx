@@ -24,43 +24,46 @@ import './theme/variables.css';
 import './global.scss';
 import { bookmarkOutline, heartOutline, homeOutline, personOutline } from 'ionicons/icons';
 import { Account, Home, Liked, Saved } from './pages';
+import { PostDataContextProvider } from './context/PostDataContext';
 
 setupIonicReact();
 
 const App = () => (
   <IonApp>
     <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Redirect exact path='/' to='/home' />
-          <Route path='/home' render={() => <Home />} exact={true} />
-          <Route path='/liked' render={() => <Liked />} exact={true} />
-          <Route path='/saved' render={() => <Saved />} exact={true} />
-          <Route path='/account' render={() => <Account />} exact={true} />
-        </IonRouterOutlet>
+      <PostDataContextProvider>
+        <IonTabs>
+          <IonRouterOutlet>
+            <Redirect exact path='/' to='/home' />
+            <Route path='/home' render={() => <Home />} exact={true} />
+            <Route path='/liked' render={() => <Liked />} exact={true} />
+            <Route path='/saved' render={() => <Saved />} exact={true} />
+            <Route path='/account' render={() => <Account />} exact={true} />
+          </IonRouterOutlet>
 
-        <IonTabBar slot='bottom'>
-          <IonTabButton tab='home' href='/home'>
-            <IonIcon icon={homeOutline} />
-            <IonLabel>Trend</IonLabel>
-          </IonTabButton>
+          <IonTabBar slot='bottom'>
+            <IonTabButton tab='home' href='/home'>
+              <IonIcon icon={homeOutline} />
+              <IonLabel>Trend</IonLabel>
+            </IonTabButton>
 
-          <IonTabButton tab='liked' href='/liked'>
-            <IonIcon icon={heartOutline} />
-            <IonLabel>Liked</IonLabel>
-          </IonTabButton>
+            <IonTabButton tab='liked' href='/liked'>
+              <IonIcon icon={heartOutline} />
+              <IonLabel>Liked</IonLabel>
+            </IonTabButton>
 
-          <IonTabButton tab='saved' href='/saved'>
-            <IonIcon icon={bookmarkOutline} />
-            <IonLabel>Saved</IonLabel>
-          </IonTabButton>
+            <IonTabButton tab='saved' href='/saved'>
+              <IonIcon icon={bookmarkOutline} />
+              <IonLabel>Saved</IonLabel>
+            </IonTabButton>
 
-          <IonTabButton tab='account' href='/account'>
-            <IonIcon icon={personOutline} />
-            <IonLabel>Account</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
+            <IonTabButton tab='account' href='/account'>
+              <IonIcon icon={personOutline} />
+              <IonLabel>Account</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+        </IonTabs>
+      </PostDataContextProvider>
     </IonReactRouter>
   </IonApp>
 );

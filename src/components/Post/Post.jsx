@@ -1,33 +1,42 @@
-import {
-  IonAvatar,
-  IonButton,
-  IonCard,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonIcon,
-} from '@ionic/react';
+import { IonAvatar, IonButton, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonIcon } from '@ionic/react';
 import { bookmark, bookmarkOutline, chatbubbleOutline, heart, heartOutline } from 'ionicons/icons';
 import React from 'react';
+import { usePostData } from '../../context/PostDataContext';
 import './Post.scss';
 
-export const Post = ({ post, allPosts, setAllPosts }) => {
+export const Post = ({ post }) => {
+  const { setMyPostData: setAllPosts } = usePostData();
 
   const handleLike = (postId) => {
     if (postId) {
-      let index = allPosts.findIndex(post => {return post.id === postId });
-      setAllPosts([...allPosts, allPosts[index].isLiked = !allPosts[index].isLiked]);
-      console.log(allPosts[index],'ye raha bhai updated');
+      setAllPosts((prevData) => {
+        // Find the object with the matching id
+        const objectIndex = prevData.findIndex((post) => post.id === postId);
+        // Create a copy of the object with the updated property
+        const updatedObject = { ...prevData[objectIndex], isLiked: !prevData[objectIndex].isLiked };
+        // Create a new array with the updated object
+        const updatedArray = [...prevData.slice(0, objectIndex), updatedObject, ...prevData.slice(objectIndex + 1)];
+        // Return the updated array
+        return updatedArray;
+      });
     }
-  }
-  const handleSave = (postId) => {
-    if (postId) {
-      let index = allPosts.findIndex(post => {return post.id === postId });
-      setAllPosts([...allPosts, allPosts[index].isSaved = !allPosts[index].isSaved]);
-      console.log(allPosts[index],'ye raha bhai updated');
-    }
-  }
+  };
 
+
+  const handleSave = (postId) => {
+ if (postId) {
+   setAllPosts((prevData) => {
+     // Find the object with the matching id
+     const objectIndex = prevData.findIndex((post) => post.id === postId);
+     // Create a copy of the object with the updated property
+     const updatedObject = { ...prevData[objectIndex], isSaved: !prevData[objectIndex].isSaved };
+     // Create a new array with the updated object
+     const updatedArray = [...prevData.slice(0, objectIndex), updatedObject, ...prevData.slice(objectIndex + 1)];
+     // Return the updated array
+     return updatedArray;
+   });
+ }
+  };
 
   return (
     <IonCard className='ion-margin post'>
@@ -47,22 +56,19 @@ export const Post = ({ post, allPosts, setAllPosts }) => {
       <IonCardHeader>
         <IonCardTitle>{post?.caption || `My Wow! Caption ${post?.id}`}</IonCardTitle>
       </IonCardHeader>
-{/* 
+      {/* 
       <IonCardContent className='ion-no-padding mar-l-10 mar-b-10'>
         {post?.comments[0]?.username && `${post?.comments[0]?.username}:${post?.comments[0]?.text} `}
       </IonCardContent> */}
       <div className='cta d-flex ion-justify-content-around ion-align-items-center'>
         <IonButton fill='clear' onClick={() => handleLike(post?.id)}>
-          <IonIcon
-            icon={post?.isLiked === false ? heartOutline : heart}
-            color='primary'
-          />
+          <IonIcon icon={post?.isLiked === false ? heartOutline : heart} color='tertiary' />
         </IonButton>
         <IonButton fill='clear'>
           <IonIcon icon={chatbubbleOutline} color='secondary' />
         </IonButton>
         <IonButton fill='clear' onClick={() => handleSave(post?.id)}>
-          <IonIcon icon={post?.isSaved === false ? bookmarkOutline: bookmark} color='tertiary' />
+          <IonIcon icon={post?.isSaved === false ? bookmarkOutline : bookmark} color='primary' />
         </IonButton>
       </div>
     </IonCard>
