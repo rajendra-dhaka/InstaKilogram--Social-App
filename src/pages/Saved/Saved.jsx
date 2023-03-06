@@ -4,14 +4,14 @@ import { Post } from "../../components";
 import { usePostData } from "../../context/PostDataContext";
 
 export const Saved = () => {
-  const { myPostData, showLoading, setShowLoading } = usePostData();
+  const { postFilteredData, showLoading, setShowLoading } = usePostData();
 
   useEffect(() => {
     setShowLoading(true);
     setTimeout(()=>{ setShowLoading(false);},1000)
   }, [])
   
- const savedPost = myPostData.filter((item) => {
+ const savedPost = postFilteredData.filter((item) => {
    return item.isSaved === true;
  });
   
@@ -21,7 +21,11 @@ export const Saved = () => {
       <IonContent>
         <IonGrid fixed>
           <IonRow>
-            <IonCol>{savedPost.length > 0 ? savedPost.map((item) => <Post post={item} />):'Please Save Some Posts!!!'}</IonCol>
+            <IonCol>
+              {savedPost.length > 0
+                ? savedPost.map((item) => <Post post={item} key={item?.id} />)
+                : 'Please Save Some Posts!!!'}
+            </IonCol>
           </IonRow>
         </IonGrid>
       </IonContent>

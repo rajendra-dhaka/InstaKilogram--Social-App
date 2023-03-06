@@ -5,7 +5,7 @@ import { usePostData } from "../../context/PostDataContext";
 
 
 export const Liked = () => {
-  const { myPostData, showLoading, setShowLoading } = usePostData();
+  const { postFilteredData, showLoading, setShowLoading } = usePostData();
 
   useEffect(() => {
     setShowLoading(true);
@@ -14,7 +14,7 @@ export const Liked = () => {
     }, 1000);
   }, []);
 
-  const likedPost = myPostData.filter((item) => {
+  const likedPost = postFilteredData.filter((item) => {
     return item.isLiked === true
   })
 
@@ -24,7 +24,7 @@ export const Liked = () => {
         <IonGrid fixed>
           <IonRow>
             <IonCol>
-              {likedPost.length > 0 ? likedPost.map((item) => <Post post={item} />) : 'Please Like Some Posts!!!'}
+              {likedPost.length > 0 ? likedPost.map((item) => <Post post={item} key={ item?.id} />) : 'Please Like Some Posts!!!'}
             </IonCol>
           </IonRow>
         </IonGrid>

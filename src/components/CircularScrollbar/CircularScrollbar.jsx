@@ -38,10 +38,9 @@ export const CircularScrollbar = () => {
     <div className='scroll-x circular-scrollbar'>
       {userStatusData &&
         userStatusData.map((item, index) => (
-          <>
+          <div key={index}>
             <div
               className='scroll-item mar-b-10'
-              key={index}
               onClick={() => {
                 setModalIsOpen(true);
               }}>
@@ -51,8 +50,8 @@ export const CircularScrollbar = () => {
               <h6 className='ion-no-margin ion-text-capitalize font14'>{item.name}</h6>
             </div>
 
-            <Modal setModalIsOpen={setModalIsOpen} modalIsOpen={modalIsOpen} data={item}/>
-          </>
+            <Modal setModalIsOpen={setModalIsOpen} modalIsOpen={modalIsOpen} data={item} />
+          </div>
         ))}
     </div>
   );

@@ -4,7 +4,7 @@ import { usePostData } from '../../context/PostDataContext';
 import './Home.scss';
 
 export const Home = () => {
-  const { myPostData, showLoading } = usePostData();
+  const {showLoading, postFilteredData } = usePostData();
 
   return (
     <IonPage className='home'>
@@ -13,10 +13,7 @@ export const Home = () => {
         <IonGrid fixed>
           <IonRow>
             <IonCol size='12'>
-              {myPostData.length > 0 &&
-                myPostData.map((item) => (
-                  <Post key={item.id} post={item} />
-                ))}
+              {postFilteredData.length > 0 && postFilteredData.map((item) => <Post key={item.id} post={item} />)}
             </IonCol>
           </IonRow>
         </IonGrid>

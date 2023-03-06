@@ -3,6 +3,7 @@ import { IonCol, IonGrid, IonHeader, IonIcon, IonRow, IonTitle, IonToolbar } fro
 import { cameraOutline, heartOutline, paperPlaneOutline } from 'ionicons/icons';
 import { CircularScrollbar } from '../CircularScrollbar/CircularScrollbar';
 import './Header.scss'
+import { Searchbar } from '../Searchbar/Searchbar';
 
 export const Header = () => {
   return (
@@ -23,7 +24,9 @@ export const Header = () => {
           </IonRow>
         </IonGrid>
       </IonToolbar>
-
+      <IonToolbar>
+        <Searchbar/>
+</IonToolbar>
       <IonToolbar>
         <CircularScrollbar/>
       </IonToolbar>

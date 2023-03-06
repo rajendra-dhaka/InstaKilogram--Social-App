@@ -1,11 +1,11 @@
-import { IonAvatar, IonButton, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonIcon } from '@ionic/react';
+import { IonAvatar, IonButton, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonIcon } from '@ionic/react';
 import { bookmark, bookmarkOutline, chatbubbleOutline, heart, heartOutline } from 'ionicons/icons';
 import React from 'react';
 import { usePostData } from '../../context/PostDataContext';
 import './Post.scss';
 
 export const Post = ({ post }) => {
-  const { setMyPostData: setAllPosts } = usePostData();
+  const { setPostFilteredData: setAllPosts } = usePostData();
 
   const handleLike = (postId) => {
     if (postId) {
@@ -56,10 +56,10 @@ export const Post = ({ post }) => {
       <IonCardHeader>
         <IonCardTitle>{post?.caption || `My Wow! Caption ${post?.id}`}</IonCardTitle>
       </IonCardHeader>
-      {/* 
+      
       <IonCardContent className='ion-no-padding mar-l-10 mar-b-10'>
         {post?.comments[0]?.username && `${post?.comments[0]?.username}:${post?.comments[0]?.text} `}
-      </IonCardContent> */}
+      </IonCardContent>
       <div className='cta d-flex ion-justify-content-around ion-align-items-center'>
         <IonButton fill='clear' onClick={() => handleLike(post?.id)}>
           <IonIcon icon={post?.isLiked === false ? heartOutline : heart} color='tertiary' />
