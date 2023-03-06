@@ -1,11 +1,10 @@
 import { IonCol, IonContent, IonGrid, IonLoading, IonPage, IonRow } from '@ionic/react';
-import { useEffect, useState } from 'react';
 import { Header, Post } from '../../components';
 import { usePostData } from '../../context/PostDataContext';
 import './Home.scss';
 
 export const Home = () => {
-  const { myPostData, setMyPostData, showLoading } = usePostData();
+  const { myPostData, showLoading } = usePostData();
 
   return (
     <IonPage className='home'>

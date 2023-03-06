@@ -19,7 +19,7 @@ export const Saved = () => {
   return (
     <IonPage>
       <IonContent>
-        <IonGrid>
+        <IonGrid fixed>
           <IonRow>
             <IonCol>{savedPost.length > 0 ? savedPost.map((item) => <Post post={item} />):'Please Save Some Posts!!!'}</IonCol>
           </IonRow>

@@ -21,7 +21,7 @@ export const Liked = () => {
   return (
     <IonPage>
       <IonContent>
-        <IonGrid>
+        <IonGrid fixed>
           <IonRow>
             <IonCol>
               {likedPost.length > 0 ? likedPost.map((item) => <Post post={item} />) : 'Please Like Some Posts!!!'}
