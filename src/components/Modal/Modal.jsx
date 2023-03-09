@@ -1,26 +1,27 @@
 import { IonButton, IonButtons, IonContent, IonIcon, IonImg, IonModal, IonTitle, IonToolbar } from "@ionic/react";
 import { closeOutline } from "ionicons/icons";
 import React from "react";
+import { usePostData } from "../../context/PostDataContext";
 import './Modal.scss';
 
-export const Modal = ({ setModalIsOpen, modalIsOpen, data }) => {
+export const Modal = ({ setModalIsOpen, modalIsOpen }) => {
+  const { userStatus, setUserStatus } = usePostData();
   return (
-    <IonModal isOpen={modalIsOpen}>
-  
-        <IonToolbar>
-          <IonTitle>{ data.name}</IonTitle>
-          <IonButtons slot='end'>
-            <IonButton
-              onClick={() => {
-                setModalIsOpen(false);
-              }}>
-              <IonIcon icon={closeOutline}></IonIcon>
-            </IonButton>
-          </IonButtons>
-        </IonToolbar>
+    <IonModal isOpen={userStatus !== null}>
+      <IonToolbar>
+        <IonTitle>{userStatus?.name}</IonTitle>
+        <IonButtons slot='end'>
+          <IonButton
+            onClick={() => {
+            setUserStatus(null);
+            }}>
+            <IonIcon icon={closeOutline}></IonIcon>
+          </IonButton>
+        </IonButtons>
+      </IonToolbar>
 
       <IonContent className='ion-padding'>
-        <IonImg src={data.image}></IonImg>
+        <IonImg src={userStatus?.image}></IonImg>
       </IonContent>
     </IonModal>
   );

@@ -6,6 +6,8 @@ const PostDataContext = createContext({
   setMyPostData: () => {},
   postFilteredData: [],
   setPostFilteredData: () => {},
+  userStatus: {},
+  setUserStatus: () => {},
   showLoading: false,
   setShowLoading: () => {},
 });
@@ -13,6 +15,7 @@ const PostDataContext = createContext({
 const PostDataContextProvider = ({ children }) => {
   const [myPostData, setMyPostData] = useState([]);
   const [postFilteredData, setPostFilteredData] = useState(myPostData);
+  const [userStatus, setUserStatus] = useState(null);
   const [showLoading, setShowLoading] = useState(false);
 
 useEffect(() => {
@@ -31,6 +34,8 @@ useEffect(() => {
     setShowLoading,
     postFilteredData,
     setPostFilteredData,
+    userStatus,
+    setUserStatus,
   };
 
   return <PostDataContext.Provider value={context}>{children}</PostDataContext.Provider>;

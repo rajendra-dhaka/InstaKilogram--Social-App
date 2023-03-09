@@ -7,13 +7,16 @@ import './Post.scss';
 export const Post = ({ post }) => {
   const { setPostFilteredData: setAllPosts } = usePostData();
 
-  const handleLike = (postId) => {
+  const handleLikeSave = (postId,type) => {
     if (postId) {
       setAllPosts((prevData) => {
         // Find the object with the matching id
         const objectIndex = prevData.findIndex((post) => post.id === postId);
         // Create a copy of the object with the updated property
-        const updatedObject = { ...prevData[objectIndex], isLiked: !prevData[objectIndex].isLiked };
+        const updatedObject =
+          type === 'like'
+            ? { ...prevData[objectIndex], isLiked: !prevData[objectIndex].isLiked }
+            : { ...prevData[objectIndex], isSaved: !prevData[objectIndex].isSaved };
         // Create a new array with the updated object
         const updatedArray = [...prevData.slice(0, objectIndex), updatedObject, ...prevData.slice(objectIndex + 1)];
         // Return the updated array
@@ -22,25 +25,9 @@ export const Post = ({ post }) => {
     }
   };
 
-
-  const handleSave = (postId) => {
- if (postId) {
-   setAllPosts((prevData) => {
-     // Find the object with the matching id
-     const objectIndex = prevData.findIndex((post) => post.id === postId);
-     // Create a copy of the object with the updated property
-     const updatedObject = { ...prevData[objectIndex], isSaved: !prevData[objectIndex].isSaved };
-     // Create a new array with the updated object
-     const updatedArray = [...prevData.slice(0, objectIndex), updatedObject, ...prevData.slice(objectIndex + 1)];
-     // Return the updated array
-     return updatedArray;
-   });
- }
-  };
-
   return (
     <IonCard className='ion-margin post'>
-      <div className='user-info d-flex ion-align-items-center mar-l-10'>
+      <div className='user-info d-flex ion-align-items-center mar-10'>
         <IonAvatar>
           <img
             alt='user'
@@ -61,13 +48,13 @@ export const Post = ({ post }) => {
         {post?.comments[0]?.username && `${post?.comments[0]?.username}:${post?.comments[0]?.text} `}
       </IonCardContent>
       <div className='cta d-flex ion-justify-content-around ion-align-items-center'>
-        <IonButton fill='clear' onClick={() => handleLike(post?.id)}>
+        <IonButton fill='clear' onClick={() => handleLikeSave(post?.id,'like')}>
           <IonIcon icon={post?.isLiked === false ? heartOutline : heart} color='tertiary' />
         </IonButton>
         <IonButton fill='clear'>
           <IonIcon icon={chatbubbleOutline} color='secondary' />
         </IonButton>
-        <IonButton fill='clear' onClick={() => handleSave(post?.id)}>
+        <IonButton fill='clear' onClick={() => handleLikeSave(post?.id,'save')}>
           <IonIcon icon={post?.isSaved === false ? bookmarkOutline : bookmark} color='primary' />
         </IonButton>
       </div>
