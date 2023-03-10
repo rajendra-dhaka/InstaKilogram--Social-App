@@ -5,7 +5,7 @@ import './Home.scss';
 
 export const Home = () => {
   const {showLoading, postFilteredData } = usePostData();
-
+console.log(postFilteredData,'home pe');
   return (
     <IonPage className='home'>
       <Header />
@@ -13,7 +13,7 @@ export const Home = () => {
         <IonGrid fixed>
           <IonRow>
             <IonCol size='12'>
-              {postFilteredData.length > 0 && postFilteredData.map((item) => <Post key={item.id} post={item} />)}
+              {postFilteredData?.length > 0 && postFilteredData.map((item) => <Post key={item.id} post={item} />)}
             </IonCol>
           </IonRow>
         </IonGrid>

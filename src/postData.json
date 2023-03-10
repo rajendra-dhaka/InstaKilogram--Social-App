@@ -40,12 +40,16 @@
     "isSaved": false,
     "comments": [
       {
-        "username": "testuser",
-        "text": "Another test comment."
+        "username": "Robin",
+        "text": "Another test comment 1."
       },
       {
-        "username": "anotheruser",
-        "text": "This is a longer comment that spans multiple lines. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet velit eu mauris ultrices faucibus. Sed et nisl vel libero pretium fringilla in vitae diam. Suspendisse rutrum sapien risus, ac ultrices tellus aliquam non. Nullam non nulla non dolor luctus vestibulum. Aliquam id felis id quam imperdiet rutrum eu vel nisi. Praesent id enim vitae massa luctus congue vel vel ex. Pellentesque blandit justo sit amet nisl elementum, a venenatis nulla bibendum. Nullam tempor purus turpis, in tempor ante vehicula et. Aenean ullamcorper felis vel nibh euismod, quis rhoncus odio imperdiet. Quisque in sapien at nulla facilisis rhoncus."
+        "username": "Kevin",
+        "text": "Another test comment 2."
+      },
+      {
+        "username": "John",
+        "text": "Another test comment 3."
       }
     ]
   },
