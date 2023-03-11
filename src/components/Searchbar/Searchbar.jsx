@@ -4,26 +4,29 @@ import { usePostData } from '../../context/PostDataContext';
 import './Searchbar.scss';
 
 export const Searchbar = () => {
-
-  const { myPostData, setPostFilteredData } = usePostData();
+  const { myPostData, postFilteredData, setPostFilteredData } = usePostData();
 
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
+    const searchQuery = e.target.value.trim();
 
-    if (searchTerm.trim() === '') {
+    if (searchQuery.trim() === '') {
       setPostFilteredData(myPostData);
     } else {
-      const filtered = myPostData.filter(
-        (post) =>
-          post?.author?.username?.toLowerCase()?.includes(searchTerm.toLowerCase()) ||
-          post?.comments[0]?.text?.toLowerCase()?.includes(searchTerm.toLowerCase())
-      );
+      const filtered = postFilteredData.filter((post) => {
+        return (
+          post?.author?.username?.toLowerCase()?.includes(searchQuery.toLowerCase()) ||
+          post?.comments?.some((comment) => comment?.text?.toLowerCase()?.includes(searchQuery.toLowerCase()))
+        );
+      });
+      console.log(filtered, 'aya re filterd post');
       setPostFilteredData(filtered);
     }
-
   };
+
+
   return (
     <IonSearchbar
       animated='true'

@@ -1,6 +1,4 @@
 import {
-  IonAccordion,
-  IonAccordionGroup,
   IonAvatar,
   IonButton,
   IonCard,
@@ -9,9 +7,6 @@ import {
   IonCardSubtitle,
   IonCardTitle,
   IonIcon,
-  IonInput,
-  IonItem,
-  IonLabel,
 } from '@ionic/react';
 import { bookmark, bookmarkOutline, chatbubbleOutline, heart, heartOutline } from 'ionicons/icons';
 import React, { useState } from 'react';

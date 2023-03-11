@@ -16,7 +16,7 @@ export const CommentBox = ({ post, showComment }) => {
             const updatedObject = { ...prevData[objectIndex], comments: [...prevData[objectIndex].comments, {username:'TestUser',text: comment}] };
            
                const updatedArray = [
-                 ...prevData.slice(0, objectIndex),
+                 ...prevData.slice(0, objectIndex), 
                  updatedObject,
                  ...prevData.slice(objectIndex + 1),
                ];
