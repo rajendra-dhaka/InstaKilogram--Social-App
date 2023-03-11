@@ -4,26 +4,41 @@ import { usePostData } from "../../context/PostDataContext";
 import './CommentBox.scss';
 
 export const CommentBox = ({ post, showComment }) => {
-  const { setPostFilteredData: setAllPosts } = usePostData();
+  const { setPostFilteredData, setMyPostData, postFilteredData } = usePostData();
   const [comment, setComment] = useState(null);
 
   const handleAddComment = (postId) => {
         if (postId && comment.trim().length > 0) {
-          setAllPosts((prevData) => {
+          setPostFilteredData((prevData) => {
             // Find the object with the matching id
             const objectIndex = prevData.findIndex((post) => post.id === postId);
 
-            const updatedObject = { ...prevData[objectIndex], comments: [...prevData[objectIndex].comments, {username:'TestUser',text: comment}] };
-           
-               const updatedArray = [
-                 ...prevData.slice(0, objectIndex), 
-                 updatedObject,
-                 ...prevData.slice(objectIndex + 1),
-               ];
+            const updatedObject = {
+              ...prevData[objectIndex],
+              comments: [...prevData[objectIndex].comments, { username: 'TestUser', text: comment }],
+            };
+
+            const updatedArray = [...prevData.slice(0, objectIndex), updatedObject, ...prevData.slice(objectIndex + 1)];
             // Empty the comment text
-            setComment('')
-               // Return the updated array
-               return updatedArray;
+            setComment('');
+            // Return the updated array
+            return updatedArray;
+          });
+        
+          setMyPostData((prevData) => {
+            // Find the object with the matching id
+            const objectIndex = prevData.findIndex((post) => post.id === postId);
+
+            const updatedObject = {
+              ...prevData[objectIndex],
+              comments: [...prevData[objectIndex].comments, { username: 'TestUser', text: comment }],
+            };
+
+            const updatedArray = [...prevData.slice(0, objectIndex), updatedObject, ...prevData.slice(objectIndex + 1)];
+            // Empty the comment text
+            setComment('');
+            // Return the updated array
+            return updatedArray;
           });
         }
   }
